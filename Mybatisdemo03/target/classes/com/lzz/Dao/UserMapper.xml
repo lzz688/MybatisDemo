@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lzz.Dao.UserMapper">
+        <!--结果集映射，column时数据库中的字段，property时实体类中的属性-->
+    <resultMap id="UserMap" type="com.lzz.pojo.User">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="password" property="pwd"/>
+    </resultMap>
+    <select id="getuserlist" resultMap="UserMap">
+    select * from test1.User;
+    </select>
+<!--  根据ID查询数据-->
+    <select id="getUserById" parameterType="int" resultType="com.lzz.pojo.User">
+        select * from test1.User where id=#{id};
+    </select>
+
+    <insert id="addUser" parameterType="com.lzz.pojo.User">
+        insert into test1.User (id, name, password) value (#{id},#{name},#{password});
+    </insert>
+
+    <update id="UpdateUser1" parameterType="map">
+        update test1.User set password=#{pwd} where id=#{zhuid};
+    </update>
+
+    <delete id="DeleteUser" parameterType="int">
+        delete from test1.User where id=#{id};
+    </delete>
+
+    <update id="UpdateUser" parameterType="com.lzz.pojo.User">
+        update test1.User set name=#{name},password=#{password} where id=#{id};
+    </update>
+</mapper>
