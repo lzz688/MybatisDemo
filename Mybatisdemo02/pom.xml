@@ -24,7 +24,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.13.1</version>
         </dependency>
     </dependencies>
     <!--  在build中配置resource，防止maven的资源配置文件导出失败(基本上都会遇到，本段代码常用)  -->
